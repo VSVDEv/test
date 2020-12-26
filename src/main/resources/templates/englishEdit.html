@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title >Edit Article</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+<header th:insert="blocks/header ::header"></header>
+<div class="container mt-5 mb-5">
+    <h1>Add article</h1>
+    <form action="#"  enctype="multipart/form-data" th:action="@{/freeEnglish/edit/{id}(id=${article.id})}"
+          th:object="${article}" method="post">
+        <label for="title">title</label>
+        <input type="text" th:field="*{title}" id="title" name="title" placeholder="Change name of article" class="form-control"><br>
+        <label for="anons">anons</label>
+        <input type="text" th:field="*{anons}" id="anons" name="anons" placeholder="Change anons" class="form-control"><br>
+        <label for="text">text</label>
+        <textarea style="height: 300px;" name="text" id="text" placeholder="Change text" class="form-control" th:field="*{text}" /><br>
+        <label for="image">image</label>
+        <input type="text" th:field="*{image}" id="image" name="image" placeholder="Change image" class="form-control"><br>
+        <input type="text" th:field="*{wiev}" name="image" placeholder="Change view" class="form-control"><br>
+        <input type="file" id="file" name="file" placeholder="Enter link" class="form-control"><br>
+        <button type="submit" class="btn btn-success">Save</button>
+    </form>
+
+
+</div>
+
+
+<footer th:insert="blocks/footer ::footer"></footer>
+</body>
+</html>
